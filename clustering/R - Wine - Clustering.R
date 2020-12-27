@@ -89,4 +89,9 @@ table(model$cluster, wine$color)
 
 # Plot with 2 principal components
 clusplot(wine, model$cluster, color=T, shade=T, labels=0, lines=0)
-                
+
+# Try with scaled features - Not any better
+scaled.df <- scale(df.clus)
+model <- kmeans(df.clus, center= 2, nstart = 5)
+table(model$cluster, wine$color)
+clusplot(wine, model$cluster, color=T, shade=T, labels=0, lines=0)
